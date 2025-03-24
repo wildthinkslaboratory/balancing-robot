@@ -24,13 +24,13 @@ Q = [1 0 0 0;
     0 1 0 0;
     0 0 1 0;
     0 0 0 1];
-R = .0001;
+R = 10;
 
 K = lqr(A,B,Q,R);
 
 %% Simulate closed-loop system
 tspan = 0:.001:10;
-x0 = [-1; 0; pi+.1; 0];  % initial condition 
+x0 = [-4; 0; pi+.1; 0];  % initial condition 
 wr = [1; 0; pi; 0];      % reference position
 u=@(x)-K*(x - wr);       % control law
 [t,x] = ode45(@(t,x)moveRobot(x,m,M,L,g,d,u(x)),tspan,x0);
