@@ -27,6 +27,8 @@ Q = [1 0 0 0;
 R = 10;
 
 K = lqr(A,B,Q,R);
+disp("K");
+disp(K);
 
 %% Simulate closed-loop system
 tspan = 0:.001:10;
